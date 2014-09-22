@@ -1,0 +1,41 @@
+1)Count Inversion
+2)Closest pair in 2D
+3)not a pan gram
+4)Sort a list of words and integers, but integers should all(sort the input line that contains words and integers )   
+remain in their original indices, and words should remain in their original indices.(The goal is to sort this 
+list in such a way that all words are in alphabetical order and all integers are in numerical order. 
+Furthermore, if the nth element in the list is an integer it must remain an integer, and if it is 
+a word it must remain a word.)
+
+5)Copy data-sets from among N servers to each other, so that   each server has a copy of all the data-sets 
+this is like parallel computing communication.
+
+time for ( all-to-all bcast ) = Log (n) * M
+
+n = # machines
+M = message size
+
+Write a program to synchronize data sets between data centers using as few copies as possible.
+Example 1:
+----------
+Input:
+
+4
+1 3 4
+1 2 3
+1 3
+1 4 2
+
+One Possible Correct Output:
+
+2 2 1
+4 1 2
+2 2 3
+4 4 3
+3 1 4
+
+6)print all subset of a set
+7)There are a collection of particles. You are given a string   of 'L' and 'R's, where 'L' 
+denote a left moving particle and 'R' denote a right moving particle. 
+The moving speed is given as another parameter. Multiple particles could stay on the same position. 
+Give the animation of the moving particles.

@@ -1,0 +1,12 @@
+testing
+868
+the
+85 
+read
+123
+write
+3 
+fstream
+class
+34
+1876

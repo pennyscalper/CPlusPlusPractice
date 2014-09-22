@@ -1,0 +1,7 @@
+sunday 1	11
+monday 2	22
+tuesday 3	33
+wednesday 4	44	444
+thursday 5	55	555	5555
+friday 6	66
+saturday 7	77

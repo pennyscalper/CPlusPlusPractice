@@ -1,0 +1,6 @@
+testing
+the 
+read
+write 
+fstream
+class
