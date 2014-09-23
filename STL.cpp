@@ -6,7 +6,7 @@
 #include <string>
 #include <fstream>
 #include <sstream> 
-#include <unordered_map> //use c++11 alias g++11='clang++ -std=c++11 -stdlib=libc++'..g++11 STL.cpp -o stl
+//#include <unordered_map> //use c++11 alias g++11='clang++ -std=c++11 -stdlib=libc++'..g++11 STL.cpp -o stl
 
 #include <cstdlib>
 
@@ -26,7 +26,7 @@ struct classcomp {
     {return lhs<rhs;}
 };
 
-void vector_manip();
+void vector_manip(int i);
 void list_manip();
 void map_manip();
 void set_manip();
@@ -40,8 +40,9 @@ int main()
 {
     
     int i;
-    if(0) {
-        vector_manip();
+    if(1) {
+		const int j = 0;
+        vector_manip(j);
         cout << "Done with Vectors*********...strating list manipulations" << endl;
     }
     
@@ -78,7 +79,8 @@ int main()
 void readData() {
     string path("/Users/praveen/Desktop/c++/dataSets");
     cout << "************************************************Reading integer array" << endl;
-    std::fstream fs((path + "/intArr.txt").c_str(), std::fstream::in | std::fstream::out);
+    //std::fstream fs((path + "\intArr.txt").c_str(), std::fstream::in | std::fstream::out);
+	std::fstream fs("./dataSets/intArr.txt", std::fstream::in | std::fstream::out);
     vector<int> vi;
     int i, itmp;
     while(fs >> itmp)
@@ -91,7 +93,8 @@ void readData() {
     cout << "************************************************Reading char array" << endl;
     vector<char> vc;
     char ctmp;
-    fs.open((path + "/charArr.txt").c_str(), std::fstream::in | std::fstream::out);
+    //fs.open((path + "/charArr.txt").c_str(), std::fstream::in | std::fstream::out);
+	fs.open("./dataSets/charArr.txt", std::fstream::in | std::fstream::out);
     while(fs >> ctmp)
         vc.push_back(ctmp);
     
@@ -102,7 +105,8 @@ void readData() {
     
     vector<string> vstr;
     string strtmp;
-    fs.open((path + "/strings.txt").c_str(), std::fstream::in | std::fstream::out);
+    //fs.open((path + "/strings.txt").c_str(), std::fstream::in | std::fstream::out);
+	fs.open("./dataSets/strings.txt", std::fstream::in | std::fstream::out);
     while(fs >> strtmp)
         vstr.push_back(strtmp);
     
@@ -111,7 +115,8 @@ void readData() {
     fs.close();
     
     cout << "************************************************Reading integer and words into long and string vectors resp" << endl;
-    fs.open((path + "/stringsIntArr.txt").c_str(), std::fstream::in | std::fstream::out);
+    //fs.open((path + "/stringsIntArr.txt").c_str(), std::fstream::in | std::fstream::out);
+	fs.open("./dataSets/stringsIntArr.txt", std::fstream::in | std::fstream::out);
     vstr.clear();
     vi.clear();
     while(fs >> strtmp) {
@@ -130,7 +135,8 @@ void readData() {
     
     cout << "************************************************Reading integer key map" << endl;
     map<int, vector<int> > intMap;
-    fs.open((path + "/IntKeyMap.txt").c_str(), std::fstream::in | std::fstream::out);
+    //fs.open((path + "/IntKeyMap.txt").c_str(), std::fstream::in | std::fstream::out);
+	fs.open("./dataSets/IntKeyMap.txt", std::fstream::in | std::fstream::out);
     while(getline(fs, strtmp)) {
         istringstream iss(strtmp);
         int key;
@@ -154,8 +160,9 @@ void readData() {
     fs.close();
     
     cout << "************************************************Reading string key map" << endl;
-    unordered_map<string, vector<int> > strMap;
-    fs.open((path + "/StringKeyMap.txt").c_str(), std::fstream::in | std::fstream::out);
+    map<string, vector<int> > strMap;
+    //fs.open((path + "/StringKeyMap.txt").c_str(), std::fstream::in | std::fstream::out);
+	fs.open("./dataSets/StringKeyMap.txt", std::fstream::in | std::fstream::out);
     while(getline(fs, strtmp)) {
         istringstream iss(strtmp);
         iss >> strtmp;
@@ -166,7 +173,7 @@ void readData() {
         strMap.insert(std::pair<string, vector<int> >(strtmp, vi));
     }
     
-    unordered_map<string, vector<int> >::iterator smap;
+    map<string, vector<int> >::iterator smap;
     for(smap = strMap.begin(); smap != strMap.end(); smap++) {
         cout << "map print:" << smap->first << "=> ";// << intMap->second << endl;
         vi.clear();
@@ -317,7 +324,7 @@ void list_manip() {
 
 }
 
-void vector_manip() {
+void vector_manip(int j) {
     vector<int> v1 (4,10); //10 ints with value 100
     vector<int> v2(v1.begin(), v1.end() - 2);
     //vector<*int> vp1[4];
